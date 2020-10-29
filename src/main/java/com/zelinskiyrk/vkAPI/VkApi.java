@@ -1,5 +1,7 @@
 package com.zelinskiyrk.vkAPI;
 
+import com.zelinskiyrk.vkAPI.response.UserFollowers;
+import com.zelinskiyrk.vkAPI.response.UserSubscriptions;
 import com.zelinskiyrk.vkAPI.response.UsersSearch;
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -16,7 +18,12 @@ public interface VkApi {
     Call<UsersSearch> usersSearch(@Query("access_token") String access_token,
                                   @Query("v") String v, @Query("count") Integer count);
 
-//    Call<UsersSearch> usersSearch();
-//    Call<List<UsersSearch>> usersSearch();
+    @GET("users.getFollowers")
+    Call<UserFollowers> userFollowers(@Query("access_token") String access_token,
+                                      @Query("v") String v, @Query("user_id") Integer user_id);
+
+    @GET("users.getSubscriptions")
+    Call<UserSubscriptions> userSubscriptions(@Query("access_token") String access_token,
+                                              @Query("v") String v, @Query("user_id") Integer user_id);
 
 }

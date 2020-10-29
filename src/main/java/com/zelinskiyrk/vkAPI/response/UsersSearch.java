@@ -18,6 +18,7 @@ public class UsersSearch {
         public String first_name;
         public int id;
         public String last_name;
+        public Boolean is_closed;
     }
 
     @Getter
